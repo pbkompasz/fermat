@@ -1,0 +1,23 @@
+#root {
+  width: 100vw;
+  max-height: 100vh;
+  padding: 0 2rem;
+  margin-top: 0;
+}
+
+.section {
+  flex: 1;
+  border: 1px solid;
+  padding: 10px;
+}
+
+.subsection--title {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: space-between;
+
+  button {
+    max-height: 3rem;
+  }
+}
