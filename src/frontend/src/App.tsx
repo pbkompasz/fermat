@@ -6,15 +6,62 @@ import Device from "./components/Device";
 import PKM from "./components/PKM";
 import Tasks from "./components/Tasks";
 import History from "./components/History";
+import { useState } from "react";
+import Modal from "./components/Modal";
+import Ingestor from "./components/Ingestor";
+import Main from "./components/Main";
+import Chat from "./components/Chat";
 
 type Device = {
   name: string;
 };
 
 function App() {
+  const [isDemo, setIsDemo] = useState(false);
+  const [isChat, setIsChat] = useState(false);
+  const showChat = () => {
+    setIsChat(true);
+  };
+
   return (
     <>
-      <h1>fermat</h1>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            gap: "1rem",
+          }}
+        >
+          <h1>fermat {isDemo && "(demo)"}</h1>
+          <button style={{ maxHeight: "4rem" }} onClick={() => showChat()}>
+            Chat
+          </button>
+          <Modal
+            isOpen={isChat}
+            title="Chat"
+            setIsOpen={setIsChat}
+            content={<Chat />}
+          />
+        </div>
+
+        <button
+          style={{ maxHeight: "4rem" }}
+          onClick={() => {
+            setIsDemo(!isDemo);
+          }}
+        >
+          {isDemo ? "Demo" : "Main"}
+        </button>
+      </div>
       <div
         style={{
           display: "flex",
@@ -24,7 +71,7 @@ function App() {
         }}
       >
         <div className="section" style={{ flex: 2 }}>
-          <h2>Main</h2>
+          <Main />
           <History />
         </div>
         <div className="section">
@@ -34,7 +81,8 @@ function App() {
           <Database />
           <Agent />
           <Apps />
-          <Device />
+          <Ingestor />
+          <Device isDemo={isDemo} />
         </div>
       </div>
     </>
