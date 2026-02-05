@@ -7,7 +7,6 @@ import PKM from "./components/PKM";
 import Tasks from "./components/Tasks";
 import History from "./components/History";
 import { useState } from "react";
-import Modal from "./components/Modal";
 import Ingestor from "./components/Ingestor";
 import Main from "./components/Main";
 import Chat from "./components/Chat";
@@ -17,11 +16,7 @@ type Device = {
 };
 
 function App() {
-  const [isDemo, setIsDemo] = useState(false);
-  const [isChat, setIsChat] = useState(false);
-  const showChat = () => {
-    setIsChat(true);
-  };
+  const [isDemo, setIsDemo] = useState(true);
 
   return (
     <>
@@ -42,15 +37,6 @@ function App() {
           }}
         >
           <h1>fermat {isDemo && "(demo)"}</h1>
-          <button style={{ maxHeight: "4rem" }} onClick={() => showChat()}>
-            Chat
-          </button>
-          <Modal
-            isOpen={isChat}
-            title="Chat"
-            setIsOpen={setIsChat}
-            content={<Chat />}
-          />
         </div>
 
         <button
@@ -73,6 +59,7 @@ function App() {
         <div className="section" style={{ flex: 2 }}>
           <Main />
           <History />
+          <Chat />
         </div>
         <div className="section">
           <h2>Settings</h2>
