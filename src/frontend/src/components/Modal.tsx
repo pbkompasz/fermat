@@ -13,12 +13,12 @@ const Modal = ({
   content: ReactNode;
 }) => {
   return (
-    <>
+    <div>
       <ReactModal
         isOpen={isOpen}
         style={{ content: { backgroundColor: "#242424", padding: "2rem" } }}
       >
-        <div>
+        <div style={{ height:"90%" }}>
           <div
             style={{
               display: "flex",
@@ -34,7 +34,7 @@ const Modal = ({
           {content ?? "Empty"}
         </div>
       </ReactModal>
-    </>
+    </div>
   );
 };
 
