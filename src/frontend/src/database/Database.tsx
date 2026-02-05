@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Modal from "./Modal";
+import Modal from "../components/Modal";
 
 const Database = () => {
   const manageDatabase = () => {
@@ -14,7 +14,12 @@ const Database = () => {
         <button onClick={manageDatabase}>Manage database(s)</button>
       </div>
       <div>database with anything including notes, pdfs, etc.</div>
-      <Modal title={"asd"} isOpen={isOpen} setIsOpen={setIsOpen} />
+      <Modal
+        title={"asd"}
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        content={<>asd</>}
+      />
     </>
   );
 };
