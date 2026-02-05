@@ -14,10 +14,16 @@
 .subsection--title {
   display: flex;
   flex-direction: row;
+  align-items: center;
   gap: 10px;
+  
   justify-content: space-between;
 
   button {
     max-height: 3rem;
   }
 }
+
+.subsection--title > div > button {
+  margin-left: 1rem;
+};
